@@ -1,0 +1,291 @@
+/**
+* Victoria Kirst (vrk@stanford.edu)
+* This is a rough copy of Squarespace's Bedford layout:
+* https://bedford-demo.squarespace.com/
+*
+* http://cs193x.stanford.edu
+*/
+
+a {
+    cursor: pointer;
+   }
+
+  a.button {
+    padding: 10px 15px;
+    border: 2px solid white;
+    border-radius: 100px;
+    }
+   
+   a.button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.8s;
+   }
+   body {
+    color: rgba(26, 26, 26, .7);
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    margin: 0;
+   }
+   
+   /*Diminuir fonte para 14px em mobile*/
+   @media (max-width: 500px) {
+    body p {
+      font-size: 14px;
+    }
+   }
+   
+   .button,
+   #details h1,
+   footer address,
+   header h1 strong,
+   #links {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    letter-spacing: 1px;
+   }
+   
+   #details {
+    display: flex;
+    justify-content: space-between;
+   }
+   
+   #details div {
+    flex-grow: 1;
+    padding: 20px;
+   }
+   
+   #details img {
+    width: 100%;
+   }
+   
+   #details h1 {
+    color: rgb(61, 153, 145);
+    font-weight: normal;
+    letter-spacing: 2px;
+   }
+   
+
+
+   footer {
+    background-color: rgb(31, 31, 31);
+    color: rgba(255, 255, 255, .8);
+    padding: 25px 30px 10px 30px;
+    text-align: center;
+   }
+   
+   footer p {
+    color: rgba(255, 255, 255, .4);
+   }
+   
+   header h1 {
+    font-size: 1em;
+    line-height: 1.5;
+   }
+   
+   h1 a.button {
+    border: 0;
+    background-color: black;
+    display: inline-block;
+    border: 2px solid white;
+   }
+   
+   h1 a.button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.8s;
+   }
+   
+   header {
+    color: white;
+    /*Efeito pra deixar o fundo escuro*/
+    background-image: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0.5),rgba(0,0,0,1)),url('images/Firma.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    height: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   }
+   
+
+
+   /*Aumentar tamanho da linha e altura da 'figura' quando mobile*/
+   @media (max-width: 500px) {
+    header {
+      height: 300px;
+      line-height: 1.2;
+    }
+   }
+   
+   /*
+   ::before is a content selector:
+   https://developer.mozilla.org/en-US/docs/Web/CSS/::before
+   This is similar to creating a <div> overlay, like the example from the slides.
+   See that the header is set to "position: relative;".
+   */
+   header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+   }
+   
+   header h1 {
+    font-weight: normal;
+    text-align: center;
+    z-index: 1;
+   }
+   
+   header h1 a {
+    font-size: 0.9em;
+   }
+   
+   header h1 em {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+   }
+   
+   header h1 strong {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.25em;
+    letter-spacing: 4px;
+   }
+   
+   /*Mudar Republica Firma no mobile*/
+   @media (max-width: 650px) {
+    header h1 em {
+      font-size: 2em;
+    }
+    header h1 strong {
+      font-size: 3em;
+    }
+   }
+   @media (max-width: 500px) {
+    header h1 strong {
+      font-size: 2em;
+      letter-spacing: 4px;
+    }
+   }
+
+   @media (max-width: 320px) {
+    a.button{ 
+      width: 50px;
+      height: 10px;
+      font-size: 0.5em;
+      padding: 5px;
+    } 
+    header h1 strong{
+      font-size: 1.5em;
+    }
+   header h1 em {
+    font-size: 1.25em;
+    }
+  }
+   header nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: .875em;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   
+   #menu {
+    display: none;
+   }
+   
+   #menu div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+   }
+   
+   /*Faz com que apareça o menu 'hamburguer' e retire os comandos de nav*/
+   @media (max-width: 720px) {
+    #links {
+      display: none;
+  }
+   
+    #menu {
+      display: block;
+    }
+   }
+   
+   
+   #links a {
+    margin: 15px;
+    font-size: 1.5em;
+   }
+   
+   #logo {
+    font-size: 2.5em;
+   }
+
+   #main p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 125px;
+    width: 60%;
+   }
+   
+   @media (max-width: 500px) {
+    #main p {
+      width: 90%;
+      margin-bottom: 2em;
+    }
+   }
+   
+   #main h1 {
+    /*font-size: 28px;*/
+    font-size: 1.75em;
+    font-weight: normal;
+    color: rgba(26,26,26,.9);
+   }
+   
+   p {
+    /*line-height: 36px;*/
+    line-height: 2.25em;
+   }
+
+   /*de 500px a 1000px*/
+    section {
+      margin: 100px 75px;
+      text-align: center;
+   }
+
+   @media (min-width: 700px) {
+   section {
+    margin: 100px 125px;
+    text-align: center;
+   }
+  }
+
+   /*Colocar figuras em colunas em mobile*/
+   @media (max-width: 1000px) {
+    #details {
+      flex-direction: column;
+    }
+   }
+   
+   @media (max-width: 500px) {
+    section {
+      margin: 40px 10px;
+    }
+   }
+/**********************************************************************/
+#logo img {
+    width: 40px;
+ }
